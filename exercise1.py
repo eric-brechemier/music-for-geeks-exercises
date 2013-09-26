@@ -49,5 +49,7 @@ assert_name_is_note("Db",1)
 assert_name_is_note("Ebb",2)
 assert_name_is_note("B#",0)
 
+assert_name_is_note("D#b#",1)
+
 print "OK"
 
