@@ -1,10 +1,10 @@
 music-for-geeks-exercises
 =========================
 
-Exercises part of ["Music for Geeks and Nerds"][BOOK] by Pedro Kroger,
+Exercises part of "[Music for Geeks and Nerds][BOOK]" by Pedro Kroger,
 solutions in Python.
 
-[BOOK]: musicforgeeksandnerds.com/
+[BOOK]: http://musicforgeeksandnerds.com/
 
 LANGUAGE
 --------
