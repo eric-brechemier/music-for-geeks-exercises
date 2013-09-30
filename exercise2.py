@@ -37,10 +37,15 @@ def accidentals(note_string):
     return 0
 
 def name_to_number(note_string):
-  notes = (
-    "Cbb Cb C C# C## . Dbb Db D D# D## . Ebb Eb E E# E## "
-    "Fbb Fb F F# F## . Gbb Gb G G# G## . Abb Ab A A# A## . Bbb Bb B B# B##"
-  ).split()
+  notes = [
+    "Cbb", "Cb", "C", "C#", "C##", ".",
+    "Dbb", "Db", "D", "D#", "D##", ".",
+    "Ebb", "Eb", "E", "E#", "E##",
+    "Fbb", "Fb", "F", "F#", "F##", ".",
+    "Gbb", "Gb", "G", "G#", "G##", ".",
+    "Abb", "Ab", "A", "A#", "A##", ".",
+    "Bbb", "Bb", "B", "B#", "B##"
+  ]
   return 1 + notes.index( note_string )
 
 def assert_name_is_note(name,number):
