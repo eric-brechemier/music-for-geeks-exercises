@@ -33,4 +33,5 @@ def music_duration(time_signature, bars, reciprocal_note_value, tempo):
   return None
 
 assert music_duration("4/4", 10, 4, 60) == 40 / 60, \
-  "duration of 40 quarter notes with 60 quarter notes per minute expected"
+  "duration of 40 quarter notes with 60 quarter notes per minute expected, " \
+  "found: %s minutes" % music_duration("4/4", 10, 4, 60)
