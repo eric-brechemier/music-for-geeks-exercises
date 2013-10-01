@@ -18,7 +18,7 @@ def note_name(number):
 
 def assert_note_has_name(number,name):
   actualName = note_name(number)
-  assert actualName  == name, \
+  assert actualName == name, \
     "%(name)s expected for note %(number)d, found %(actual)s" \
       % {"name": name, "number": number, "actual": actualName}
 
@@ -50,7 +50,7 @@ def name_to_number(note_string):
 
 def assert_name_is_note(name,number):
   actualNumber = name_to_number(name)
-  assert actualNumber  == number, \
+  assert actualNumber == number, \
     "Note %(number)d expected for %(name)s, found %(actual)d" \
       % {"number": number, "name": name, "actual": actualNumber}
 
