@@ -13,7 +13,7 @@ def mod12(n):
     return n % 12
 
 def note_name(number):
-    notes = [ "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" ]
+    notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
     return notes[mod12(number)]
 
 def assert_note_has_name(number,name):

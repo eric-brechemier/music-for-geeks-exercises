@@ -8,7 +8,7 @@ def mod12(n):
     return n % 12
 
 def note_name(number):
-    notes = [ "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" ]
+    notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
     return notes[mod12(number)]
 
 def assert_note_has_name(number,name):
@@ -23,7 +23,7 @@ assert_note_has_name(13,"C#")
 assert_note_has_name(3,"D#")
 
 def name_to_number(note_string):
-    notes = [ "C", ".", "D", ".", "E", "F", ".", "G", ".", "A", ".", "B" ]
+    notes = ["C", ".", "D", ".", "E", "F", ".", "G", ".", "A", ".", "B"]
     name = note_string[0:1].upper()
     number = notes.index(name)
     for accidental in note_string[1:]:

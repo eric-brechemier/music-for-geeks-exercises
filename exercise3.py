@@ -22,7 +22,7 @@ def assert_note_duration_is(note_value, duration):
     ACCURACY = 1/100
     actual_duration = note_duration(note_value, UNITY, TEMPO)
     assert \
-        abs( actual_duration - duration ) < ACCURACY, \
+        abs(actual_duration - duration) < ACCURACY, \
         "%(duration).2f seconds expected for note value %(note_value)s" \
         % {"duration": actual_duration, "note_value": note_value}
 
