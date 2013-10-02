@@ -47,4 +47,3 @@ assert_name_is_note("B#",0)
 assert_name_is_note("C#b#",1)
 
 print "OK"
-
