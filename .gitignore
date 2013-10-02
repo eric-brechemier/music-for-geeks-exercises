@@ -1,2 +1,8 @@
 # ignore temporary vim files
 *.swp
+
+# ignore compiled python created by the python interpreter
+# when a script is imported, e.g.:
+#     import exercise4
+# creates 'exercise4.pyc'
+*.pyc
