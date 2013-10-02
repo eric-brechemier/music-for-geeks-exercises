@@ -18,9 +18,10 @@ def note_name(number):
 
 def assert_note_has_name(number,name):
     actual_name = note_name(number)
-    assert actual_name == name, \
-        "%(name)s expected for note %(number)d, found %(actual)s" % \
+    assert actual_name == name, (
+        "%(name)s expected for note %(number)d, found %(actual)s" %
         {"name": name, "number": number, "actual": actual_name}
+    )
 
 assert_note_has_name(0,"C")
 assert_note_has_name(1,"C#")
@@ -50,9 +51,10 @@ def name_to_number(note_string):
 
 def assert_name_is_note(name,number):
     actual_number = name_to_number(name)
-    assert actual_number == number, \
-        "Note %(number)d expected for %(name)s, found %(actual)d" % \
+    assert actual_number == number, (
+        "Note %(number)d expected for %(name)s, found %(actual)d" %
         {"number": number, "name": name, "actual": actual_number}
+    )
 
 # Test each of the value in use in Hewlett's base-40 system [1]
 assert_name_is_note("Cbb",  1)

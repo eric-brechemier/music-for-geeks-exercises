@@ -21,10 +21,10 @@ def assert_note_duration_is(note_value, duration):
     TEMPO = 90
     ACCURACY = 1/100
     actual_duration = note_duration(note_value, UNITY, TEMPO)
-    assert \
-        abs(actual_duration - duration) < ACCURACY, \
-        "%(duration).2f seconds expected for note value %(note_value)s" \
-        % {"duration": actual_duration, "note_value": note_value}
+    assert abs(actual_duration - duration) < ACCURACY, (
+        "%(duration).2f seconds expected for note value %(note_value)s" %
+        {"duration": actual_duration, "note_value": note_value}
+    )
 
 assert_note_duration_is(1/4, 0.66)
 assert_note_duration_is(1/2, 1.33)
@@ -38,11 +38,14 @@ def music_duration(time_signature, bars, reciprocal_note_value, tempo):
     reciprocal_unity = int(reciprocal_unity)
     unity = 1 / reciprocal_unity
     note_value = 1 / reciprocal_note_value
-    return bars * beats * note_duration(note_value, unity, tempo) / \
-    SECONDS_PER_MINUTE
+    return (
+      bars * beats * note_duration(note_value, unity, tempo) /
+      SECONDS_PER_MINUTE
+    )
 
-assert music_duration("4/4", 10, 4, 60) == 40 / 60, \
-    "duration of 40 quarter notes with 60 quarter notes per minute expected, "\
+assert music_duration("4/4", 10, 4, 60) == 40 / 60, (
+    "duration of 40 quarter notes with 60 quarter notes per minute expected, "
     "found: %s minutes" % music_duration("4/4", 10, 4, 60)
+)
 
 print "OK"
