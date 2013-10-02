@@ -125,5 +125,7 @@ assert_interval_name_is("C", "Bb", "Minor Seventh")
 assert_interval_name_is("C", "B", "Major Seventh")
 
 assert_interval_name_is("Eb", "C#", "Augmented Sixth")
+assert_interval_name_is("Eb", "F#", "Augmented Second")
+assert_interval_name_is("E", "Cb", "Diminished Sixth")
 
 print "OK"
