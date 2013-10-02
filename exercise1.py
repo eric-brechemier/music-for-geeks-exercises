@@ -12,10 +12,10 @@ def note_name(number):
     return notes[mod12(number)]
 
 def assert_note_has_name(number,name):
-    actualName = note_name(number)
-    assert actualName == name, \
+    actual_name = note_name(number)
+    assert actual_name == name, \
         "%(name)s expected for note %(number)d, found %(actual)s" \
-          % {"name": name, "number": number, "actual": actualName}
+          % {"name": name, "number": number, "actual": actual_name}
 
 assert_note_has_name(0,"C")
 assert_note_has_name(1,"C#")
@@ -34,10 +34,10 @@ def name_to_number(note_string):
     return mod12(number)
 
 def assert_name_is_note(name,number):
-  actualNumber = name_to_number(name)
-  assert actualNumber == number, \
+  actual_number = name_to_number(name)
+  assert actual_number == number, \
       "Note %(number)d expected for %(name)s, found %(actual)d" \
-        % {"number": number, "name": name, "actual": actualNumber}
+        % {"number": number, "name": name, "actual": actual_number}
 
 assert_name_is_note("C#",1)
 assert_name_is_note("Db",1)
