@@ -38,8 +38,8 @@ def music_duration(time_signature, bars, reciprocal_note_value, tempo):
     reciprocal_unity = int(reciprocal_unity)
     unity = 1 / reciprocal_unity
     note_value = 1 / reciprocal_note_value
-    return bars * beats * note_duration(note_value, unity, tempo) \
-        / SECONDS_PER_MINUTE
+    return bars * beats * note_duration(note_value, unity, tempo) / \
+    SECONDS_PER_MINUTE
 
 assert music_duration("4/4", 10, 4, 60) == 40 / 60, \
     "duration of 40 quarter notes with 60 quarter notes per minute expected, "\
