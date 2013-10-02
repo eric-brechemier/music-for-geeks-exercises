@@ -77,11 +77,24 @@ class SimpleMusicError(Exception):
 
 def get_quality(diatonic_interval, chromatic_interval):
     if diatonic_interval in [0, 3, 4]:
-        quality_map = ["Diminished", "Perfect", "Augmented"]
+        quality_map = [
+          "Doubly Diminished",
+          "Diminished",
+          "Perfect",
+          "Augmented",
+          "Doubly Augmented"
+        ]
     else:
-        quality_map = ['Diminished', 'Minor', 'Major', 'Augmented']
+        quality_map = [
+          'Doubly Diminished',
+          'Diminished',
+          'Minor',
+          'Major',
+          'Augmented',
+          'Doubly Augmented'
+        ]
 
-    index_map = [-1, 0, 2, 4, 6, 7, 9]
+    index_map = [-2, -1, 1, 3, 5, 6, 8]
     try:
         return quality_map[chromatic_interval - index_map[diatonic_interval]]
     except IndexError:
