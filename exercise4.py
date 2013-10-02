@@ -128,4 +128,7 @@ assert_interval_name_is("Eb", "C#", "Augmented Sixth")
 assert_interval_name_is("Eb", "F#", "Augmented Second")
 assert_interval_name_is("E", "Cb", "Diminished Sixth")
 
+assert_interval_name_is("Eb", "F##", "Doubly Augmented Second")
+assert_interval_name_is("E", "Cbb", "Doubly Diminished Sixth")
+
 print "OK"
