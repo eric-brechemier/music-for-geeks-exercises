@@ -99,7 +99,54 @@ assert_name_is_note("B#",  39)
 assert_name_is_note("B##", 40)
 
 def interval_name(note1, note2):
-    return None
+    # from 'Computation of Intervals' in [1],
+    # completed with doubly augmented interval names
+    INTERVAL_NAMES = [
+      'Perfect Unison', #0
+      'Augmented Unison', #1
+      'Doubly Augmented Unison', #2
+      'Doubly Diminished Second', #3
+      'Diminished Second', #4
+      'Minor Second', #5
+      'Major Second', #6
+      'Augmented Second', #7
+      'Doubly Augmented Second', #8
+      'Doubly Diminished Third', #9
+      'Diminished Third', #10
+      'Minor Third', #11
+      'Major Third', #12
+      'Augmented Third', #13
+      'Doubly Augmented Third', #14
+      'Doubly Diminished Fourth', #15
+      'Diminished Fourth', #16
+      'Perfect Fourth', #17
+      'Augmented Fourth', #18
+      'Doubly Augmented Fourth', #19
+      '-', #20
+      'Doubly Diminished Fifth', #21
+      'Diminished Fifth', #22
+      'Perfect Fifth', #23
+      'Augmented Fifth', #24
+      'Doubly Augmented Fifth', #25
+      'Doubly Diminished Sixth', #26
+      'Diminished Sixth', #27
+      'Minor Sixth', #28
+      'Major Sixth', #29
+      'Augmented Sixth', #30
+      'Doubly Augmented Sixth', #31
+      'Doubly Diminished Seventh', #32
+      'Diminished Seventh', #33
+      'Minor Seventh', #34
+      'Major Seventh', #35
+      'Augmented Seventh', #36
+      'Doubly Augmented Seventh', #37
+      'Doubly Diminished Octave', #38
+      'Diminished Octave', #39
+      'Perfect Octave' #40 (unused: displayed as 'Perfect Unison')
+    ]
+
+    delta = (name_to_number(note2) - name_to_number(note1)) % 40;
+    return INTERVAL_NAMES[delta]
 
 def assert_interval_name_is(note1, note2, name):
     actual_name = interval_name(note1, note2)
