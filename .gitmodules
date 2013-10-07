@@ -1,0 +1,3 @@
+[submodule "pyknon"]
+	path = pyknon
+	url = git@github.com:eric-brechemier/pyknon.git
