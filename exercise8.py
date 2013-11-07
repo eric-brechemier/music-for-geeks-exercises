@@ -23,12 +23,12 @@ def choice_if_list(item):
     else:
         return item
 
-def random_notes(pitch_list, octave, duration,
+def random_notes(pitch_list, octave_list, duration,
                  number_of_notes, volume=120):
     result = NoteSeq()
     for x in range(0, number_of_notes):
         pitch = choice(pitch_list)
-        octave = choice_if_list(octave)
+        octave = choice_if_list(octave_list)
         dur = choice_if_list(duration)
         vol = choice_if_list(volume)
         result.append(Note(pitch, octave, dur, vol))
