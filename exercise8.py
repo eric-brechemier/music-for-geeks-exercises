@@ -35,6 +35,14 @@ def random_notes(pitch_list, octave_list, duration,
     return result
 
 CHROMATIC_SCALE = range(0, 12)
+
+# There are various definitions of pentatonic scales
+# https://en.wikipedia.org/wiki/Pentatonic_scale#Types_of_pentatonic_scales
+#
+# This is the C Major pentatonic scale:
+# C, D, E, G, A
+# as well as the A minor pentatonic scale:
+# A, C, D, E, F
 PENTATONIC_SCALE = [0, 2, 4, 7, 9]
 
 def is_chromatic(notes):
@@ -130,3 +138,41 @@ def random3(scale, filename):
 random1(CHROMATIC_SCALE, 'exercise8-random1-chromatic.mid')
 random2(CHROMATIC_SCALE, 'exercise8-random2-chromatic.mid')
 random3(PENTATONIC_SCALE, 'exercise8-random3-pentatonic.mid')
+
+# C Major: C, D, E, F, G, A, B
+# https://en.wikipedia.org/wiki/Major_scale
+MAJOR_SCALE = [0, 2, 4, 5, 7, 9, 11]
+
+random1(MAJOR_SCALE, 'exercise8-random1-major.mid')
+random2(MAJOR_SCALE, 'exercise8-random2-major.mid')
+random3(MAJOR_SCALE, 'exercise8-random3-major.mid')
+
+# There are various definitions of minor scales
+# https://en.wikipedia.org/wiki/Minor_scale
+#
+# Let's consider A minor, which is related to C major.
+# The natural minor scale of A has the same tones as the C Major scale.
+# A minor natural: A, B, C, D, E, F, G
+
+# The harmonic minor scale has the same tones as the natural minor scale,
+# except the seventh is raised one semitone (accidental)
+# A minor harmonic: A, B, C, D, E, F, G#
+HARMONIC_MINOR_SCALE = [9, 11, 0, 2, 4, 5, 8]
+
+random1(HARMONIC_MINOR_SCALE, 'exercise8-random1-minor-harmonic.mid')
+random2(HARMONIC_MINOR_SCALE, 'exercise8-random2-minor-harmonic.mid')
+random3(HARMONIC_MINOR_SCALE, 'exercise8-random3-minor-harmonic.mid')
+
+# In melodic minor scale, the interval between the sixth and seventh is
+# reduced from 3 semitones (augmented second) to 2 semitones (major second)
+# by either raising the sixth, resulting in the ascending melodic minor scale,
+# or flattening the seventh, resulting in the descending melodic minor scale
+# which is identical to the natural minor scale (same tones as major scale).
+
+# The ascending melodic minor scale is also called "jazz minor scale"
+# A (ascending) melodic minor: A, B, C, D, E, F#, G#
+MELODIC_MINOR_SCALE = [9, 11, 0, 2, 4, 6, 8]
+
+random1(MELODIC_MINOR_SCALE, 'exercise8-random1-minor-melodic.mid')
+random2(MELODIC_MINOR_SCALE, 'exercise8-random2-minor-melodic.mid')
+random3(MELODIC_MINOR_SCALE, 'exercise8-random3-minor-melodic.mid')
