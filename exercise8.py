@@ -111,6 +111,7 @@ def random1():
                          durations,
                          100,
                          range(0, 128, 20))
+    print notes.verbose
     gen_midi("exercise8-random1-chromatic.mid", notes)
 
 def random2():
