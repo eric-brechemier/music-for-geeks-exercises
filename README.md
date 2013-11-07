@@ -1,5 +1,5 @@
-music-for-geeks-exercises
-=========================
+Music for Geeks: Exercises
+==========================
 
 Exercises part of "[Music for Geeks and Nerds][BOOK]" by Pedro Kroger,
 solutions in Python.
