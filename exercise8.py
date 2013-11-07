@@ -128,7 +128,6 @@ def random2(scale, filename):
     gen_midi(filename, notes)
 
 def random3(scale, filename):
-    pentatonic = [0, 2, 4, 7, 9]
     notes = random_notes(scale,
                          range(5, 7),
                          1/16,
