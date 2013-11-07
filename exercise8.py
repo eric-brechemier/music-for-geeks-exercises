@@ -103,32 +103,30 @@ def gen_midi(filename, note_list):
     midi.seq_notes(note_list)
     midi.write(filename)
 
-def random1():
-    chromatic = range(0, 12)
+def random1(scale, filename):
     durations = [1/64, 1/32, 1/16, 1/8, 1/4, 1/2, 1]
-    notes = random_notes(chromatic,
+    notes = random_notes(scale,
                          range(0, 9),
                          durations,
                          100,
                          range(0, 128, 20))
-    gen_midi("exercise8-random1-chromatic.mid", notes)
+    gen_midi(filename, notes)
 
-def random2():
-    chromatic = range(0, 12)
-    notes = random_notes(chromatic,
+def random2(scale, filename):
+    notes = random_notes(scale,
                          range(3, 7),
                          [1/16, 1/8],
                          100)
-    gen_midi("exercise8-random2-chromatic.mid", notes)
+    gen_midi(filename, notes)
 
-def random3():
+def random3(scale, filename):
     pentatonic = [0, 2, 4, 7, 9]
-    notes = random_notes(pentatonic,
+    notes = random_notes(scale,
                          range(5, 7),
                          1/16,
                          100)
-    gen_midi("exercise8-random3-pentatonic.mid", notes)
+    gen_midi(filename, notes)
 
-random1()
-random2()
-random3()
+random1(CHROMATIC_SCALE, 'exercise8-random1-chromatic.mid')
+random2(CHROMATIC_SCALE, 'exercise8-random2-chromatic.mid')
+random3(PENTATONIC_SCALE, 'exercise8-random3-pentatonic.mid')
