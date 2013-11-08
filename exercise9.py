@@ -41,13 +41,16 @@ def gen_midi(filename, note_list):
     midi.write(filename)
 
 # weight for each value is computed from its offset
-# (0 for the item with highest weight, the top of the curve,
-# the offset defaults to the middle of the list)
 # with the formula:
 #   offset -> round( amplifier * e^(-offset^2 / flattener) )
 # where the amplifier increases the amplitude of values
-# while the flattener flattens the curve of the bell shape
-# (each defaults to the size of the list)
+# while the flattener flattens the curve of the bell shape.
+#
+# The offset 0 corresponds to the item with highest weight,
+# the position of the top of the Gauss curve. A positive offset
+# pushes the curve to the right, a negative offset pulls the curve
+# to the left. The offset defaults to the middle of the list,
+# which falls between two values when the number of items is even.
 def gauss_weights(list, amplifier=None, flattener=None, offset=None):
     size = len(list)
     if amplifier is None:
@@ -61,13 +64,13 @@ def gauss_weights(list, amplifier=None, flattener=None, offset=None):
         # position the middle between the two central values.
         if size % 2 == 0:
             middle += 0.5
-        offset = middle - size
+        offset = size - middle
 
     weights = []
     for value in list:
         weight = round(amplifier * math.exp(-pow(offset, 2) / flattener))
         weights.append(weight)
-        offset += 1
+        offset -= 1
 
     return weights
 
@@ -91,7 +94,7 @@ assert weights4 == [10, 9, 7, 4], (
     "shifted weights expected for 4 values (*10,/10,+0), was: %s" % weights4
 )
 
-weights4 = gauss_weights(range(1, 5), 10, 10, -1)
+weights4 = gauss_weights(range(1, 5), 10, 10, 1)
 assert weights4 == [9, 10, 9, 7], (
     "shifted weights expected for 4 values (*10,/10,+1), was: %s" %
     weights4
