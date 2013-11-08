@@ -134,11 +134,9 @@ def random_with_weights(scale, weights, filename):
     durations = [1/64, 1/32, 1/16, 1/8, 1/4, 1/2, 1]
     DURATIONS_GAUSS_AMPLIFIER = 100
     DURATIONS_GAUSS_FLATTENER = 3
-    DURATIONS_GAUSS_OFFSET = 4
     durations_weights = gauss_weights(durations,
                                       DURATIONS_GAUSS_AMPLIFIER,
-                                      DURATIONS_GAUSS_FLATTENER,
-                                      DURATIONS_GAUSS_OFFSET)
+                                      DURATIONS_GAUSS_FLATTENER)
     weighted_durations = weight_list(durations, durations_weights)
 
     NUMBER_OF_NOTES = 100
