@@ -40,26 +40,29 @@ def gen_midi(filename, note_list):
     midi.seq_notes(note_list)
     midi.write(filename)
 
-# weight for each value is computed from its offset from the middle of the
-# list with the formula:
+# weight for each value is computed from its offset
+# (0 for the item with highest weight, the top of the curve,
+# the offset defaults to the middle of the list)
+# with the formula:
 #   offset -> round( amplifier * e^(-offset^2 / flattener) )
 # where the amplifier increases the amplitude of values
 # while the flattener flattens the curve of the bell shape
 # (each defaults to the size of the list)
-def gauss_weights(list, amplifier=None, flattener=None):
+def gauss_weights(list, amplifier=None, flattener=None, offset=None):
     size = len(list)
     if amplifier is None:
         amplifier = size
     if flattener is None:
         flattener = size
 
-    middle = math.ceil(size/2)
-    # When the number of items in the list is even,
-    # position the middle between the two central values.
-    if size % 2 == 0:
-        middle += 0.5
+    if offset is None:
+        middle = math.ceil(size/2)
+        # When the number of items in the list is even,
+        # position the middle between the two central values.
+        if size % 2 == 0:
+            middle += 0.5
+        offset = middle - size
 
-    offset = middle - size
     weights = []
     for value in list:
         weight = round(amplifier * math.exp(-pow(offset, 2) / flattener))
