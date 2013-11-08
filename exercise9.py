@@ -167,3 +167,11 @@ random_with_weights(MAJOR_SCALE,
                     GEOMETRIC_WEIGHTS,
                     'exercise9-major-geometric-weights.mid')
 
+random_with_weights(HARMONIC_MINOR_SCALE,
+                    GEOMETRIC_WEIGHTS,
+                    'exercise9-minor-harmonic-geometric-weights.mid')
+
+random_with_weights(MELODIC_MINOR_SCALE,
+                    GEOMETRIC_WEIGHTS,
+                    'exercise9-minor-melodic-geometric-weights.mid')
+
