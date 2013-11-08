@@ -68,17 +68,17 @@ def gauss_weights(list, amplifier=None, flattener=None):
 
     return weights
 
-weights7 = gauss_weights(range(1,8),10,10)
+weights7 = gauss_weights(range(1,8), 10, 10)
 assert weights7 == [4, 7, 9, 10, 9, 7, 4], (
     "pre-computed weights expected for 7 values (*10,/10), was: %s" % weights7
 )
 
-weights7 = gauss_weights(range(1,8),21,3)
+weights7 = gauss_weights(range(1,8), 21, 3)
 assert weights7 == [1, 6, 15, 21, 15, 6, 1], (
     "pre-computed weights expected for 7 values (*21,/3), was: %s" % weights7
 )
 
-weights4 = gauss_weights(range(1,5))
+weights4 = gauss_weights(range(1, 5))
 assert weights4 == [2, 4, 4, 2], (
     "pre-computed weights expected for a list of 4 values, was: %s" % weights4
 )
