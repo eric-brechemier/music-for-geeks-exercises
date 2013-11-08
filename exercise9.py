@@ -106,15 +106,20 @@ assert weighted_list1 == [1, 1, 1, 1, 2, 2, 4, 4, 4, 5], (
 def random_with_weights(scale, weights, filename):
     weighted_scale = weight_list(scale, weights)
 
-    AMPLIFIER = 21
-    FLATTENER = 3
-
     octaves = range(2,9)
-    octave_weights = gauss_weights(octaves, 21, 3)
+    OCTAVES_GAUSS_AMPLIFIER = 21
+    OCTAVES_GAUSS_FLATTENER = 3
+    octave_weights = gauss_weights(octaves,
+                                   OCTAVES_GAUSS_AMPLIFIER,
+                                   OCTAVES_GAUSS_FLATTENER)
     weighted_octaves = weight_list(octaves, octave_weights)
 
     durations = [1/64, 1/32, 1/16, 1/8, 1/4, 1/2, 1]
-    durations_weights = gauss_weights(durations, AMPLIFIER, FLATTENER)
+    DURATIONS_GAUSS_AMPLIFIER = 100
+    DURATIONS_GAUSS_FLATTENER = 3
+    durations_weights = gauss_weights(durations,
+                                      DURATIONS_GAUSS_AMPLIFIER,
+                                      DURATIONS_GAUSS_FLATTENER)
     weighted_durations = weight_list(durations, durations_weights)
 
     NUMBER_OF_NOTES = 100
