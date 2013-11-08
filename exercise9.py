@@ -41,8 +41,8 @@ def gen_midi(filename, note_list):
     midi.write(filename)
 
 # weight for each value is computed from its offset from the middle of the
-# list and the size of the list with the formula:
-#   offset -> round( size * e^(-offset^2 / size) )
+# list with the formula:
+#   offset -> round( amplifier * e^(-offset^2 / flattener) )
 # where the amplifier increases the amplitude of values
 # while the flattener flattens the curve of the bell shape
 # (each defaults to the size of the list)
