@@ -86,6 +86,17 @@ assert weights4 == [2, 4, 4, 2], (
     "pre-computed weights expected for a list of 4 values, was: %s" % weights4
 )
 
+weights4 = gauss_weights(range(1, 5), 10, 10, 0)
+assert weights4 == [10, 9, 7, 4], (
+    "shifted weights expected for 4 values (*10,/10,+0), was: %s" % weights4
+)
+
+weights4 = gauss_weights(range(1, 5), 10, 10, -1)
+assert weights4 == [9, 10, 9, 7], (
+    "shifted weights expected for 4 values (*10,/10,+1), was: %s" %
+    weights4
+)
+
 # repeat each value in the list as many times as the weight at the same offset
 def weight_list(list, weights):
     size = len(list)
