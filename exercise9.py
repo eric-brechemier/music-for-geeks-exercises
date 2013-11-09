@@ -220,6 +220,10 @@ def random_with_weights_and_memory(scale, weights, filename):
                                       DURATIONS_GAUSS_FLATTENER)
     weighted_durations = weight_list(durations, durations_weights)
 
+    volumes = [0, 30, 70, 100, 120]
+    volumes_weights = [1, 2, 4, 8, 4]
+    weighted_volumes = weight_list(volumes, volumes_weights)
+
     NUMBER_OF_NOTES = 100
     # first 8 non-zero values of Fibonacci sequence, from last to first
     MEMORY_WEIGHTS = [21, 13, 8, 5, 3, 2, 1, 1]
@@ -227,7 +231,8 @@ def random_with_weights_and_memory(scale, weights, filename):
                                      weighted_octaves,
                                      weighted_durations,
                                      NUMBER_OF_NOTES,
-                                     MEMORY_WEIGHTS)
+                                     MEMORY_WEIGHTS,
+                                     weighted_volumes)
     gen_midi(filename, notes)
 
 # See details and references about scales in exercise8.py
