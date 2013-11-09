@@ -185,7 +185,7 @@ def random_notes_with_memory(pitch_list, octave_list, duration_list,
         if duration_selection == 0: # new note
             dur = choice_if_list(duration_list)
         else: # previous note at given position starting from the end
-            dur = result[-octave_selection].dur
+            dur = result[-duration_selection].dur
 
         vol = choice_if_list(volume)
         result.append(Note(pitch, octave, dur, vol))
