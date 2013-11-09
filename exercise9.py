@@ -163,18 +163,23 @@ def weighted_random(weights):
 # memory_weights indicates the weight for reusing the property of a note:
 # * item 0 gives the weight for a new note (no reuse)
 # * item i gives the weight for the i-th note previously played
-# The memory weights apply to octaves and durations only.
 def random_notes_with_memory(pitch_list, octave_list, duration_list,
                              number_of_notes, memory_weights, volume=120):
     assert len(memory_weights) > 1, "more than 1 weight expected for memory"
     result = NoteSeq()
     for offset in range(0, number_of_notes):
-        pitch = choice(pitch_list)
 
         if 1+offset >= len(memory_weights):
             weights = memory_weights
         else:
             weights = memory_weights[0:1+offset]
+
+        pitch_selection = weighted_random(weights)
+        if pitch_selection == 0: # new note
+            pitch = choice(pitch_list)
+        else:
+            pitch = result[-pitch_selection].value
+
         octave_selection = weighted_random(weights)
         if octave_selection == 0: # new note
             octave = choice_if_list(octave_list)
@@ -187,7 +192,12 @@ def random_notes_with_memory(pitch_list, octave_list, duration_list,
         else: # previous note at given position starting from the end
             dur = result[-duration_selection].dur
 
-        vol = choice_if_list(volume)
+        volume_selection = weighted_random(weights)
+        if volume_selection == 0: # new note
+            vol = choice_if_list(volume)
+        else: # previous note at given position starting from the end
+            vol = result[-volume_selection].volume
+
         result.append(Note(pitch, octave, dur, vol))
     return result
 
