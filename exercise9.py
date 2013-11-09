@@ -16,7 +16,7 @@ from pyknon.music import Note, NoteSeq
 
 import collections
 import math
-from random import choice
+from random import choice, randint
 
 def choice_if_list(item):
     if isinstance(item, collections.Iterable):
@@ -146,6 +146,80 @@ def random_with_weights(scale, weights, filename):
                          NUMBER_OF_NOTES)
     gen_midi(filename, notes)
 
+# pick a position in the given array,
+# an integer between 0 and len(size)-1,
+# using each value as a weight in the selection:
+# value 20 weights 20 times more in the selection than value 1
+def weighted_random(weights):
+    assert len(weights) > 0, 'list of weights must not be empty'
+    total = sum(weights)
+    selected = randint(0, total)
+    current = 0
+    for offset in range(0, len(weights)):
+        current += weights[offset]
+        if selected <= current:
+            return offset
+
+# memory_weights indicates the weight for reusing the property of a note:
+# * item 0 gives the weight for a new note (no reuse)
+# * item i gives the weight for the i-th note previously played
+# The memory weights apply to octaves and durations only.
+def random_notes_with_memory(pitch_list, octave_list, duration_list,
+                             number_of_notes, memory_weights, volume=120):
+    assert len(memory_weights) > 1, "more than 1 weight expected for memory"
+    result = NoteSeq()
+    for offset in range(0, number_of_notes):
+        pitch = choice(pitch_list)
+
+        if 1+offset >= len(memory_weights):
+            weights = memory_weights
+        else:
+            weights = memory_weights[0:1+offset]
+        octave_selection = weighted_random(weights)
+        if octave_selection == 0: # new note
+            octave = choice_if_list(octave_list)
+        else: # previous note at given position starting from the end
+            octave = result[-octave_selection].octave
+
+        duration_selection = weighted_random(weights)
+        if duration_selection == 0: # new note
+            dur = choice_if_list(duration_list)
+        else: # previous note at given position starting from the end
+            dur = result[-octave_selection].dur
+
+        vol = choice_if_list(volume)
+        result.append(Note(pitch, octave, dur, vol))
+    return result
+
+def random_with_weights_and_memory(scale, weights, filename):
+    weighted_scale = weight_list(scale, weights)
+
+    octaves = range(2,9)
+    OCTAVES_GAUSS_AMPLIFIER = 21
+    OCTAVES_GAUSS_FLATTENER = 3
+    octave_weights = gauss_weights(octaves,
+                                   OCTAVES_GAUSS_AMPLIFIER,
+                                   OCTAVES_GAUSS_FLATTENER)
+    weighted_octaves = weight_list(octaves, octave_weights)
+
+    durations = [1/64, 1/32, 1/16, 1/8, 1/4, 1/2, 1]
+    DURATIONS_GAUSS_AMPLIFIER = 100
+    DURATIONS_GAUSS_FLATTENER = 3
+    durations_weights = gauss_weights(durations,
+                                      DURATIONS_GAUSS_AMPLIFIER,
+                                      DURATIONS_GAUSS_FLATTENER)
+    weighted_durations = weight_list(durations, durations_weights)
+
+    NUMBER_OF_NOTES = 100
+    # first 8 non-zero values of Fibonacci sequence, from last to first
+    MEMORY_WEIGHTS = [21, 13, 8, 5, 3, 2, 1, 1]
+    notes = random_notes_with_memory(weighted_scale,
+                                     weighted_octaves,
+                                     weighted_durations,
+                                     NUMBER_OF_NOTES,
+                                     MEMORY_WEIGHTS)
+    gen_midi(filename, notes)
+
 # See details and references about scales in exercise8.py
 # C Major: C, D, E, F, G, A, B
 MAJOR_SCALE = [0, 2, 4, 5, 7, 9, 11]
@@ -175,3 +249,20 @@ random_with_weights(MELODIC_MINOR_SCALE,
                     GEOMETRIC_WEIGHTS,
                     'exercise9-minor-melodic-geometric-weights.mid')
 
+random_with_weights_and_memory(
+    MAJOR_SCALE,
+    GEOMETRIC_WEIGHTS,
+    'exercise9-major-geometric-weights-and-memory.mid'
+)
+
+random_with_weights_and_memory(
+    HARMONIC_MINOR_SCALE,
+    GEOMETRIC_WEIGHTS,
+    'exercise9-minor-harmonic-geometric-weights-and-memory.mid'
+)
+
+random_with_weights_and_memory(
+    MELODIC_MINOR_SCALE,
+    GEOMETRIC_WEIGHTS,
+    'exercise9-minor-melodic-geometric-weights-and-memory.mid'
+)
