@@ -64,6 +64,7 @@ def gen_fib():
     octave = range(5, 7)
     fib = fibonacci(100000000000)
 
+    print "Generate %i notes based on Fibonacci sequence" % len(fib)
     n1 = play_list(fib, octave, 1/16)
 
     gen_midi("exercise10-fibonacci.mid", n1)
@@ -72,6 +73,7 @@ def gen_pascal():
     octave = range(5, 7)
     pascal = flatten(pascals_triangle(30))
 
+    print "Generate %i notes based on Pascal's triangles" % len(pascal)
     n2 = play_list(pascal, 4, 1/16)
     n3 = play_list(pascal, octave, 1/16)
 
