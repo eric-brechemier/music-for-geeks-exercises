@@ -60,17 +60,23 @@ def play_list(pitch_list, octave_list, duration, volume=120):
         result.append(Note(note, octave, dur, vol))
     return result
 
-def random_fib():
+def gen_fib():
     octave = range(5, 7)
     fib = fibonacci(100000000000)
-    pascal = flatten(pascals_triangle(30))
 
     n1 = play_list(fib, octave, 1/16)
+
+    gen_midi("exercise10-fibonacci.mid", n1)
+
+def gen_pascal():
+    octave = range(5, 7)
+    pascal = flatten(pascals_triangle(30))
+
     n2 = play_list(pascal, 4, 1/16)
     n3 = play_list(pascal, octave, 1/16)
 
-    gen_midi("exercise10-fibonacci.mid", n1)
     gen_midi("exercise10-pascal.mid", n2)
     gen_midi("exercise10-pascal_octaves.mid", n3)
 
-random_fib()
+gen_fib()
+gen_pascal()
