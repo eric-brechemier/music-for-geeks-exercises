@@ -46,4 +46,4 @@ do
     break
   fi
 done
-echo -n ']'
+echo ']'
