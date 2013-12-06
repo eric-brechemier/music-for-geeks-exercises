@@ -33,10 +33,12 @@ cut -f2 --delimiter=' ' "$fileName" | while read number
 do
   if [ $position -gt 1 ]
   then
-    echo -n ', '
+    echo -n ','
     if [ $(( $position % $valuesPerLine )) -eq 1 ]
     then
       echo # newline
+    else
+      echo -n ' '
     fi
   fi
   echo -n $number
