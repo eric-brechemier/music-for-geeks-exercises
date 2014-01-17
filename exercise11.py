@@ -24,3 +24,4 @@ def crab_canon(filename):
     midi.write("%s.mid" % filename)
 
 crab_canon("exercise11-bach-crab-canon")
+crab_canon("exercise11-my-crab-canon")
