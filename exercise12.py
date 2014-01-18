@@ -11,17 +11,24 @@ sys.path.append('./pyknon')
 from pyknon.genmidi import Midi
 from pyknon.music import Note, NoteSeq
 
-def canon():
+def inversion(notes):
+    return notes.inversion_startswith(Note(2, 4))
+
+# operation - function(notes), function applied to the notes of part2
+#             to produce the notes of voice2 for the canon
+# operationName - string, name of the operation,
+#                 used in file name of generated MIDI
+def canon(operation, operationName):
     theme = NoteSeq("file://exercise12-bach-canon-quaerendo-invenietis.notes")
     part1 = theme + theme[2:] + theme[2:11]
     part2 = theme + theme[2:] + theme[2:4]
 
     voice1 = part1
-    voice2 = part2.inversion_startswith(Note(2, 4))
+    voice2 = operation(part2)
 
     midi = Midi(2, tempo=150)
     midi.seq_notes(voice1, time=3, track=0)
     midi.seq_notes(voice2, time=13, track=1)
-    midi.write("exercise12-canon-by-inversion.mid")
+    midi.write("exercise12-canon-by-%s.mid" % operationName)
 
-canon()
+canon(inversion, "inversion")
