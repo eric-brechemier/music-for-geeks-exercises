@@ -15,11 +15,11 @@ from pyknon.music import Note, NoteSeq
 #            and as output, with the extension .mid,
 #            to generate corresponding MIDI file.
 def crab_canon(filename):
-    theme2 = NoteSeq("file://%s.notes" % filename)
-    rev_theme = theme2.transposition(-12).retrograde()
+    theme = NoteSeq("file://%s.notes" % filename)
+    rev_theme = theme.transposition(-12).retrograde()
 
     midi = Midi(2, tempo=120)
-    midi.seq_notes(theme2)
+    midi.seq_notes(theme)
     midi.seq_notes(rev_theme, track=1)
     midi.write("%s.mid" % filename)
 
