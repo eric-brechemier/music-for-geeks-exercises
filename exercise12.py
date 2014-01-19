@@ -20,6 +20,9 @@ def transposition(notes):
 def retrograde(notes):
     return notes.retrograde()
 
+def rotation(notes):
+    return notes.rotate(5)
+
 # operation - function(notes), function applied to the notes of part2
 #             to produce the notes of voice2 for the canon
 # operationName - string, name of the operation,
@@ -40,3 +43,4 @@ def canon(operation, operationName):
 canon(inversion, "inversion")
 canon(transposition, "transposition")
 canon(retrograde, "retrograde")
+canon(rotation, "rotation")
