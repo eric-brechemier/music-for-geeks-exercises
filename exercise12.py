@@ -14,6 +14,9 @@ from pyknon.music import Note, NoteSeq
 def inversion(notes):
     return notes.inversion_startswith(Note("D,"))
 
+def transposition(notes):
+    return notes.transposition_startswith(Note("Eb,"))
+
 # operation - function(notes), function applied to the notes of part2
 #             to produce the notes of voice2 for the canon
 # operationName - string, name of the operation,
@@ -32,3 +35,4 @@ def canon(operation, operationName):
     midi.write("exercise12-canon-by-%s.mid" % operationName)
 
 canon(inversion, "inversion")
+canon(transposition, "transposition")
