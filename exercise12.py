@@ -23,6 +23,9 @@ def retrograde(notes):
 def rotation(notes):
     return notes.rotate(5)
 
+def repetitionTwiceFaster(notes):
+    return notes.stretch_dur(0.5) + notes.stretch_dur(0.5)
+
 # operation - function(notes), function applied to the notes of part2
 #             to produce the notes of voice2 for the canon
 # operationName - string, name of the operation,
@@ -44,3 +47,4 @@ canon(inversion, "inversion")
 canon(transposition, "transposition")
 canon(retrograde, "retrograde")
 canon(rotation, "rotation")
+canon(repetitionTwiceFaster, "repetition-twice-faster")
