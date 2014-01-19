@@ -12,7 +12,7 @@ from pyknon.genmidi import Midi
 from pyknon.music import Note, NoteSeq
 
 def inversion(notes):
-    return notes.inversion_startswith(Note(2, 4))
+    return notes.inversion_startswith(Note("D,"))
 
 # operation - function(notes), function applied to the notes of part2
 #             to produce the notes of voice2 for the canon
