@@ -24,8 +24,8 @@ midi.seq_notes(seq2)
 #    The notes of seq2 sequence override notes at the same position in seq1.
 midi.write("exercise7-F-G-A.mid")
 
-# Q.What happens when you change the second-to-last line to
-#   midi.seq_notes(seq2, time=3)
+# Q. What happens when you change the second-to-last line to
+#    midi.seq_notes(seq2, time=3)
 midi = Midi()
 midi.seq_notes(seq1)
 midi.seq_notes(seq2, time=3)
@@ -33,8 +33,8 @@ midi.seq_notes(seq2, time=3)
 #    the two sequences seq1 and seq2 appear concatenated.
 midi.write("exercise7-C-D-E-F-G-A.mid")
 
-# What happens when you change the second-to-last line to
-#   midi.seq_notes(seq2, time=4)
+# Q. What happens when you change the second-to-last line to
+#    midi.seq_notes(seq2, time=4)
 midi = Midi()
 midi.seq_notes(seq1)
 midi.seq_notes(seq2, time=4)
