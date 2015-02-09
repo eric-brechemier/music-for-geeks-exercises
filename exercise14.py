@@ -11,25 +11,29 @@ import sys
 sys.path.append('./pyknon')
 from pyknon.music import Note, NoteSeq
 
-class Note(Note):
-    def harmonize_template(self, scale, indices):
-        # TODO: implement
-        # Hint: modify previous implementation of Note#harmonize()
-        return
+def note_harmonize_template(self, scale, indices):
+    # TODO: implement
+    # Hint: modify previous implementation of Note#harmonize()
+    return
 
-    def harmonize(self, scale, interval=3, size=3):
-        # TODO: implement using harmonize_template()
-        return
+def note_harmonize(self, scale, interval=3, size=3):
+    # TODO: implement using harmonize_template()
+    return
 
-class NoteSeq(NoteSeq):
-    def harmonize_template(self, indices):
-        # TODO: implement
-        # Hint: modify previous implementation of NoteSeq#harmonize()
-        return
+Note.harmonize_template = note_harmonize_template
+Note.harmonize = note_harmonize
 
-    def harmonize(self, interval=3, size=3):
-        # TODO: implement using harmonize_template()
-        return
+def noteseq_harmonize_template(self, indices):
+    # TODO: implement
+    # Hint: modify previous implementation of NoteSeq#harmonize()
+    return
+
+def noteseq_harmonize(self, interval=3, size=3):
+    # TODO: implement using harmonize_template()
+    return
+
+NoteSeq.harmonize_template = noteseq_harmonize_template
+NoteSeq.harmonize = noteseq_harmonize
 
 c = Note("C")
 assert str(c) == '<C>'
