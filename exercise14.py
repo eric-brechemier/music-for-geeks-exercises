@@ -12,21 +12,20 @@ sys.path.append('./pyknon')
 from pyknon.music import Note, NoteSeq
 
 def note_harmonize_template(self, scale, indices):
-    # TODO: implement
-    # Hint: modify previous implementation of Note.harmonize()
-    return
+    return [self.tonal_transposition(x, scale) for x in indices]
 
 def note_harmonize(self, scale, interval=3, size=3):
-    # TODO: implement using harmonize_template()
-    return
+    i = (interval - 1)
+    indices = range(1, size*i, i)
+    return self.harmonize_template(scale, indices)
 
 Note.harmonize_template = note_harmonize_template
 Note.harmonize = note_harmonize
 
 def noteseq_harmonize_template(self, indices):
-    # TODO: implement
-    # Hint: modify previous implementation of NoteSeq.harmonize()
-    return
+    return [\
+        NoteSeq(note.harmonize_template(self, indices)) for note in self\
+    ]
 
 NoteSeq.harmonize_template = noteseq_harmonize_template
 
