@@ -28,12 +28,7 @@ def noteseq_harmonize_template(self, indices):
     # Hint: modify previous implementation of NoteSeq#harmonize()
     return
 
-def noteseq_harmonize(self, interval=3, size=3):
-    # TODO: implement using harmonize_template()
-    return
-
 NoteSeq.harmonize_template = noteseq_harmonize_template
-NoteSeq.harmonize = noteseq_harmonize
 
 c = Note("C")
 assert str(c) == '<C>'
