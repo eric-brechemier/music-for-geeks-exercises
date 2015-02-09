@@ -11,6 +11,12 @@ import sys
 sys.path.append('./pyknon')
 from pyknon.music import Note, NoteSeq
 
+class Note(Note):
+    pass
+
+class NoteSeq(NoteSeq):
+    pass
+
 c = Note("C")
 assert str(c) == '<C>'
 c_major_scale = NoteSeq("C D E F G A B")
