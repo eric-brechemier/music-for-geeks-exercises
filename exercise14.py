@@ -105,13 +105,13 @@ assert str(c_major_scale.harmonize_template([1, 4, 7, 10])) == '[' \
     ']'
 
 assert str(c_major_scale.harmonize_template([1, 4, 6])) == '[' \
-        '<Seq: [<C>, <F>, <B>]>, ' \
-        '<Seq: [<D>, <G>, <C>]>, ' \
-        '<Seq: [<E>, <A>, <D>]>, ' \
-        '<Seq: [<F>, <B>, <E>]>, ' \
-        '<Seq: [<G>, <C>, <F>]>, ' \
-        '<Seq: [<A>, <D>, <G>]>, ' \
-        '<Seq: [<B>, <E>, <A>]>' \
+        '<Seq: [<C>, <F>, <A>]>, ' \
+        '<Seq: [<D>, <G>, <B>]>, ' \
+        '<Seq: [<E>, <A>, <C>]>, ' \
+        '<Seq: [<F>, <B>, <D>]>, ' \
+        '<Seq: [<G>, <C>, <E>]>, ' \
+        '<Seq: [<A>, <D>, <F>]>, ' \
+        '<Seq: [<B>, <E>, <G>]>' \
     ']'
 
 assert str(c_major_scale.harmonize_template([1, 2, 4, 6])) == '[' \
