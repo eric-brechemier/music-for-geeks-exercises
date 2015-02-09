@@ -13,7 +13,7 @@ from pyknon.music import Note, NoteSeq
 
 def note_harmonize_template(self, scale, indices):
     # TODO: implement
-    # Hint: modify previous implementation of Note#harmonize()
+    # Hint: modify previous implementation of Note.harmonize()
     return
 
 def note_harmonize(self, scale, interval=3, size=3):
@@ -25,7 +25,7 @@ Note.harmonize = note_harmonize
 
 def noteseq_harmonize_template(self, indices):
     # TODO: implement
-    # Hint: modify previous implementation of NoteSeq#harmonize()
+    # Hint: modify previous implementation of NoteSeq.harmonize()
     return
 
 NoteSeq.harmonize_template = noteseq_harmonize_template
