@@ -235,7 +235,7 @@ def random_with_weights_and_memory(scale, weights, filename):
                                      weighted_volumes)
     gen_midi(filename, notes)
 
-# See details and references about scales in exercise8.py
+# See details and references about scales in exercise08.py
 # C Major: C, D, E, F, G, A, B
 MAJOR_SCALE = [0, 2, 4, 5, 7, 9, 11]
 # A minor harmonic: A, B, C, D, E, F, G#
@@ -254,30 +254,30 @@ GEOMETRIC_WEIGHTS = [8, 1, 2, 4, 4, 2, 1]
 
 random_with_weights(MAJOR_SCALE,
                     GEOMETRIC_WEIGHTS,
-                    'exercise9-major-geometric-weights.mid')
+                    'exercise09-major-geometric-weights.mid')
 
 random_with_weights(HARMONIC_MINOR_SCALE,
                     GEOMETRIC_WEIGHTS,
-                    'exercise9-minor-harmonic-geometric-weights.mid')
+                    'exercise09-minor-harmonic-geometric-weights.mid')
 
 random_with_weights(MELODIC_MINOR_SCALE,
                     GEOMETRIC_WEIGHTS,
-                    'exercise9-minor-melodic-geometric-weights.mid')
+                    'exercise09-minor-melodic-geometric-weights.mid')
 
 random_with_weights_and_memory(
     MAJOR_SCALE,
     GEOMETRIC_WEIGHTS,
-    'exercise9-major-geometric-weights-and-memory.mid'
+    'exercise09-major-geometric-weights-and-memory.mid'
 )
 
 random_with_weights_and_memory(
     HARMONIC_MINOR_SCALE,
     GEOMETRIC_WEIGHTS,
-    'exercise9-minor-harmonic-geometric-weights-and-memory.mid'
+    'exercise09-minor-harmonic-geometric-weights-and-memory.mid'
 )
 
 random_with_weights_and_memory(
     MELODIC_MINOR_SCALE,
     GEOMETRIC_WEIGHTS,
-    'exercise9-minor-melodic-geometric-weights-and-memory.mid'
+    'exercise09-minor-melodic-geometric-weights-and-memory.mid'
 )

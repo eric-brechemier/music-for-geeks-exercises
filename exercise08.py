@@ -134,17 +134,17 @@ def random3(scale, filename):
                          100)
     gen_midi(filename, notes)
 
-random1(CHROMATIC_SCALE, 'exercise8-random1-chromatic.mid')
-random2(CHROMATIC_SCALE, 'exercise8-random2-chromatic.mid')
-random3(PENTATONIC_SCALE, 'exercise8-random3-pentatonic.mid')
+random1(CHROMATIC_SCALE, 'exercise08-random1-chromatic.mid')
+random2(CHROMATIC_SCALE, 'exercise08-random2-chromatic.mid')
+random3(PENTATONIC_SCALE, 'exercise08-random3-pentatonic.mid')
 
 # C Major: C, D, E, F, G, A, B
 # https://en.wikipedia.org/wiki/Major_scale
 MAJOR_SCALE = [0, 2, 4, 5, 7, 9, 11]
 
-random1(MAJOR_SCALE, 'exercise8-random1-major.mid')
-random2(MAJOR_SCALE, 'exercise8-random2-major.mid')
-random3(MAJOR_SCALE, 'exercise8-random3-major.mid')
+random1(MAJOR_SCALE, 'exercise08-random1-major.mid')
+random2(MAJOR_SCALE, 'exercise08-random2-major.mid')
+random3(MAJOR_SCALE, 'exercise08-random3-major.mid')
 
 # There are various definitions of minor scales
 # https://en.wikipedia.org/wiki/Minor_scale
@@ -158,9 +158,9 @@ random3(MAJOR_SCALE, 'exercise8-random3-major.mid')
 # A minor harmonic: A, B, C, D, E, F, G#
 HARMONIC_MINOR_SCALE = [9, 11, 0, 2, 4, 5, 8]
 
-random1(HARMONIC_MINOR_SCALE, 'exercise8-random1-minor-harmonic.mid')
-random2(HARMONIC_MINOR_SCALE, 'exercise8-random2-minor-harmonic.mid')
-random3(HARMONIC_MINOR_SCALE, 'exercise8-random3-minor-harmonic.mid')
+random1(HARMONIC_MINOR_SCALE, 'exercise08-random1-minor-harmonic.mid')
+random2(HARMONIC_MINOR_SCALE, 'exercise08-random2-minor-harmonic.mid')
+random3(HARMONIC_MINOR_SCALE, 'exercise08-random3-minor-harmonic.mid')
 
 # In melodic minor scale, the interval between the sixth and seventh is
 # reduced from 3 semitones (augmented second) to 2 semitones (major second)
@@ -172,6 +172,6 @@ random3(HARMONIC_MINOR_SCALE, 'exercise8-random3-minor-harmonic.mid')
 # A (ascending) melodic minor: A, B, C, D, E, F#, G#
 MELODIC_MINOR_SCALE = [9, 11, 0, 2, 4, 6, 8]
 
-random1(MELODIC_MINOR_SCALE, 'exercise8-random1-minor-melodic.mid')
-random2(MELODIC_MINOR_SCALE, 'exercise8-random2-minor-melodic.mid')
-random3(MELODIC_MINOR_SCALE, 'exercise8-random3-minor-melodic.mid')
+random1(MELODIC_MINOR_SCALE, 'exercise08-random1-minor-melodic.mid')
+random2(MELODIC_MINOR_SCALE, 'exercise08-random2-minor-melodic.mid')
+random3(MELODIC_MINOR_SCALE, 'exercise08-random3-minor-melodic.mid')
