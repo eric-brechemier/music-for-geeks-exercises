@@ -19,3 +19,5 @@ csound \
   exercise15-csound.orc \
   exercise15-csound.sco \
   || exit 2
+
+echo 'Done.'

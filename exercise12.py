@@ -41,10 +41,14 @@ def canon(operation, operationName):
     midi = Midi(2, tempo=150)
     midi.seq_notes(voice1, time=3, track=0)
     midi.seq_notes(voice2, time=13, track=1)
-    midi.write("exercise12-canon-by-%s.mid" % operationName)
+    output_file = "exercise12-canon-by-%s.mid" % operationName
+    print "Write " + output_file
+    midi.write(output_file)
 
 canon(inversion, "inversion")
 canon(transposition, "transposition")
 canon(retrograde, "retrograde")
 canon(rotation, "rotation")
 canon(repetitionTwiceFaster, "repetition-twice-faster")
+
+print "Done."

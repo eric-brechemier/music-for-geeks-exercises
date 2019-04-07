@@ -109,6 +109,7 @@ assert (
 def gen_midi(filename, note_list):
     midi = Midi(tempo=120)
     midi.seq_notes(note_list)
+    print "Write " + filename
     midi.write(filename)
 
 def random1(scale, filename):
@@ -175,3 +176,5 @@ MELODIC_MINOR_SCALE = [9, 11, 0, 2, 4, 6, 8]
 random1(MELODIC_MINOR_SCALE, 'exercise08-random1-minor-melodic.mid')
 random2(MELODIC_MINOR_SCALE, 'exercise08-random2-minor-melodic.mid')
 random3(MELODIC_MINOR_SCALE, 'exercise08-random3-minor-melodic.mid')
+
+print "Done."

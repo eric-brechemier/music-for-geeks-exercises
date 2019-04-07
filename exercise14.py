@@ -133,3 +133,4 @@ assert str(c_major_scale.harmonize_template([1, 5, 6, 9, 12])) == '[' \
         '<Seq: [<B>, <F>, <G>, <C>, <F>]>' \
     ']'
 
+print "OK"

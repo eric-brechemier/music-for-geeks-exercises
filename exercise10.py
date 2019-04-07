@@ -29,6 +29,7 @@ def choice_if_list(item):
 def gen_midi(filename, note_list):
     midi = Midi(tempo=120)
     midi.seq_notes(note_list)
+    print "Write " + filename
     midi.write(filename)
 
 def fibonacci(n):
@@ -204,3 +205,5 @@ def gen_prime_diff():
 gen_fib()
 gen_pascal()
 gen_prime_diff()
+
+print "Done."

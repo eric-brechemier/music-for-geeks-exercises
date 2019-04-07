@@ -21,7 +21,11 @@ def crab_canon(filename):
     midi = Midi(2, tempo=120)
     midi.seq_notes(theme)
     midi.seq_notes(rev_theme, track=1)
-    midi.write("%s.mid" % filename)
+    output_file = "%s.mid" % filename
+    print "Write " + output_file
+    midi.write(output_file)
 
 crab_canon("exercise11-bach-crab-canon")
 crab_canon("exercise11-my-crab-canon")
+
+print "Done."

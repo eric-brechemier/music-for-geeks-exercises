@@ -62,3 +62,5 @@ print "%s sets found unrelated by transposition:" \
 print unrelated_sets_by_transposition
 assert len(unrelated_sets_by_transposition) == 19,  \
                                  "19 sets unrelated by transposition expected"
+
+print "OK"

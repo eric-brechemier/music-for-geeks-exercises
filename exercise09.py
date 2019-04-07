@@ -38,6 +38,7 @@ def random_notes(pitch_list, octave_list, duration,
 def gen_midi(filename, note_list):
     midi = Midi(tempo=120)
     midi.seq_notes(note_list)
+    print "Write " + filename
     midi.write(filename)
 
 # weight for each value is computed from its offset
@@ -281,3 +282,5 @@ random_with_weights_and_memory(
     GEOMETRIC_WEIGHTS,
     'exercise09-minor-melodic-geometric-weights-and-memory.mid'
 )
+
+print "Done."
