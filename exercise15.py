@@ -29,3 +29,9 @@ def harmonic_series(n, fundamental):
 
 assert harmonic_series(13,55) == \
        [55, 110, 165, 220, 275, 330, 385, 440, 495, 550, 605, 660, 715]
+
+# > Notice how it sounds different from the equal temperament.
+# See exercise15.sh which generates a WAV file for this harmonic series,
+# defined in the Csound score exercise15-csound.sco.
+
+print "OK"
